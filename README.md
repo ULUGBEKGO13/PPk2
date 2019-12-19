@@ -1,11 +1,7 @@
-#   int[,] myArr = new int[8, 8];
+#       int[,] myArr = new int[8, 8];
         int [][] list = new int [1][];
         int[] ochered = new int[7];
-        bool flg2 = true;
-        for(int w = 0; w<1; w++)
-        {
-            list[w] = new int[2];
-        }
+        int w = 0;
         for (int i = 1; i<8; i++)
         {
             for (int j = 1; j<8; j++)
@@ -33,9 +29,9 @@
         }
         Console.WriteLine();
     
-        for (int i = 0; i < 7; i++)
+        for (int p = 0; p < 7; p++)
         {
-            ochered[i] = 0;
+            ochered[p] = 0;
         }
         ochered[0] = 1;
         int k = 1;
@@ -59,55 +55,39 @@
                 }
             }
         }
-        for (int i = 0; i<7;i++)
+        for (int p = 0; p<7;p++)
         {
-            Console.Write(ochered[i]);
+            Console.Write(ochered[p]);
         }
-        int l = 1;
-        for(int i =0; i<7; i++)
+        int q = 2;
+        int h = 0;
+        for(int i = 1; i < 8; i++)
         {
-            for(int j = 0; j<7; j++)
+            for(int j = 1; j < 8; j++)
             {
-                if(myArr[ochered[k],ochered[k + 1]] == 1)
+                if(myArr[ochered[i],j] == 1)
                 {
                     bool flg1 = true;
-                    for(int w = 0; w<l; w++)
+                    if(list.Count >2)
                     {
-                        for(int q = 0; q<2;q++)
+                        for(int x = 0; x<list.Count; x++)
                         {
-                            if(list[w][q] == list[w + 1][q])
+                            if(list[x][q] == myArr[i,j])
                             {
                                 flg1 = false;
+                                h = h + 1;
                             }
                         }
                     }
-                    for(int w = 0; w<l; w++)
+                    if(flg1 == true && h < 7)
                     {
-                        if(flg1 == true && flg2 == true)
-                        {
-                            list[w][0] = ochered[k];
-                            list[w][1] = ochered[k + 1];
-                            l = l + 1;
-                            Array.Resize(ref list, l);
-                        }
-                    }
-                }
-                for(int w = 0; w < l; w++)
-                {
-                    for(int q = 0; q<2; q++)
-                    {
-                        if(list[w][q] == list[w + 1][q])
-                        {
-                            flg2 = false;
-                        }
+                        list[w] = new int[]{ochered[k],ochered[k + 1]};
+                        Array.Resize(ref list, list.Count() + 1);
                     }
                 }
             }
         }
-        for(int i = 0; i<l; i++)
+        for(int p = 0; p<l; p++)
         {
-            for(int q = 0; q<2; q++)
-            {
-                Console.Write(list[i][q]);
-            }
+            Console.Write(list[p][q]);
         }
