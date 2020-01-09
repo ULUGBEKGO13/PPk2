@@ -1,7 +1,7 @@
 #       
         int[,] myArr = new int[7,7];
         int[] ochered = new int[7];
-	bool[] vis = new bool[7];
+		bool[] vis = new bool[7];
         for (int i = 0; i<7; i++)
         {
             for (int j = 0; j<7; j++)
@@ -59,7 +59,7 @@
         {
             Console.Write(ochered[i] + " ");
         }
-	Console.WriteLine();
+		Console.WriteLine();
         ArrayList list = new ArrayList();
         for(int i = 0; i < 6; i++)
         {
@@ -67,11 +67,11 @@
             {
                 if(myArr[ochered[i] - 1,j] == 1)
                 {
-		    bool flg1 = false;
+					bool flg1 = false;
                     if(flg1 == false)
                     {
                         list.AddRange(new int[]{ochered[i], j + 1});
-			flg1 = true;
+						flg1 = true;
                     }
                 }
             }
@@ -81,9 +81,3 @@
             Console.Write(list[i] + " ");
         }
 	}
-            }
-        }
-        for(int p = 0; p<l; p++)
-        {
-            Console.Write(list[p][q]);
-        }
